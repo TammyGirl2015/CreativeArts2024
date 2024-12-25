@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <h1>Welcome to Creative Arts</h1>
+    <p>Your one-stop platform for premium custom graphic design services.</p>
+
+    {% if user.is_authenticated %}
+      <p>Welcome back, {{ user.username }}! We're excited to have you create something amazing with us.</p>
+    {% else %}
+      <p>Not a member yet? <a href="{% url 'register' %}">Register now</a> to start your creative journey!</p>
+    {% endif %}
+
+    <h2>Our Featured Design Services</h2>
+    <div class="services">
+      <ul>
+        <li>
+          <a href="{% url 'design_service' %}">Logo Design</a> - Professional logos to represent your brand.
+        </li>
+        <li>
+          <a href="{% url 'design_service' %}">Poster Design</a> - High-quality posters for events and promotions.
+        </li>
+        <li>
+          <a href="{% url 'design_service' %}">Social Media Graphics</a> - Custom graphics to elevate your social media presence.
+        </li>
+      </ul>
+    </div>
+
+    <h2>How It Works</h2>
+    <p>1. Choose a service.</p>
+    <p>2. Submit your design requirements.</p>
+    <p>3. Get your unique, high-quality design delivered!</p>
+
+    <h3>Why Choose Us?</h3>
+    <p>We provide top-notch graphic design services that align with your vision. Whether you're looking for a professional logo or eye-catching social media posts, we're here to help bring your ideas to life.</p>
+
+    <p>If you're ready to get started, <a href="{% url 'checkout' %}">click here</a> to make your first order!</p>
+  </div>
+{% endblock %}

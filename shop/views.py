@@ -7,6 +7,15 @@ from django.contrib import messages
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
+# Home View
+def home(request):
+    return render(request, 'shop/home.html')
+
+# Shop View 
+def shop_view(request):
+    return render(request, 'shop/shop.html')
+
+
 # Checkout View
 def checkout(request):
     if request.method == "POST":
