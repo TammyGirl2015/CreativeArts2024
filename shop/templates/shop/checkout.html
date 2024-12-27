@@ -1,31 +1,69 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Checkout</title>
-    <script src="https://js.stripe.com/v3/"></script>
-</head>
-<body>
-    <h1>Checkout</h1>
-    <button id="checkout-button">Pay Now</button>
-    <script>
-        const stripe = Stripe("{{ stripe_public_key }}");
+{% extends 'base.html' %}
 
-        document.getElementById("checkout-button").addEventListener("click", function () {
-            fetch("{% url 'checkout' %}", {
-                method: "POST",
-                headers: {
-                    "X-CSRFToken": "{{ csrf_token }}"
-                },
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.error) {
-                    alert(data.error);
-                } else {
-                    stripe.redirectToCheckout({ sessionId: data.clientSecret });
-                }
-            });
+{% block title %}Checkout - Creative Arts{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Checkout</h1>
+
+<div class="row">
+    <div class="col-md-8">
+        <h3>Billing Information</h3>
+        <form action="#" method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="address" class="form-label">Shipping Address</label>
+                <input type="text" class="form-control" id="address" required>
+            </div>
+            <div class="mb-3">
+                <label for="payment" class="form-label">Payment Method</label>
+                <select class="form-control" id="payment">
+                    <option value="credit_card">Credit Card</option>
+                    <option value="paypal">PayPal</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-success">Complete Order</button>
+        </form>
+    </div>
+
+    <div class="col-md-4">
+        <h3>Order Summary</h3>
+        <ul>
+            <li>Product 1 - $20</li>
+            <li>Product 2 - $15</li>
+        </ul>
+        <hr>
+        <p><strong>Total: $35</strong></p>
+    </div>
+</div>
+
+<h3>Payment</h3>
+<p>Click the button below to proceed with payment:</p>
+<button id="checkout-button" class="btn btn-primary">Pay Now</button>
+
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+    const stripe = Stripe("{{ stripe_public_key }}");
+
+    document.getElementById("checkout-button").addEventListener("click", function () {
+        fetch("{% url 'checkout' %}", {
+            method: "POST",
+            headers: {
+                "X-CSRFToken": "{{ csrf_token }}"
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                alert(data.error);
+            } else {
+                stripe.redirectToCheckout({ sessionId: data.clientSecret });
+            }
         });
-    </script>
-</body>
-</html>
+    });
+</script>
+
+{% endblock %}
