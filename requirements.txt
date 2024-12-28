@@ -8,3 +8,4 @@ python-decouple==3.8
 pytz==2024.2
 sqlparse==0.5.3
 stripe==11.4.1
+whitenoise==6.8.2
