@@ -1,131 +1,192 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+Creative Arts 2024
 
-Welcome Tamarie Maenzanise,
+Creative Arts 2024 is a Django-powered e-commerce platform specializing in graphic design services. The site offers customers options to purchase and inquire about design work like logos, posters, and social media graphics.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+Table of Contents
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
+Features
 
-## Gitpod Reminders
+Tech Stack
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+Setup Instructions
 
-`python3 -m http.server`
+Testing
 
-A blue button should appear to click: _Make Public_,
+Usage
 
-Another blue button should appear to click: _Open Browser_.
+Author
 
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
+License
 
-A blue button should appear to click: _Make Public_,
+Features
 
-Another blue button should appear to click: _Open Browser_.
+Dynamic Navigation:
 
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+Links to pages such as Home, Shop, Services, and Contact.
 
-To log into the Heroku toolbelt CLI:
+User authentication with login and logout.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+Shop Functionality:
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
+Display of graphic design options (logos, posters, and social media graphics).
 
-### Connecting your Mongo database
+Inquiry section for custom design requests.
 
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
+Checkout System:
 
-------
+Integration with Stripe for payment processing.
 
-## Release History
+Contact Form:
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+Users can leave inquiries or feedback, captured via a form.
 
-**June 18, 2024,** Add Mongo back into template
+Responsive Design:
 
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
+Styled for desktops, tablets, and mobile screens using Bootstrap.
 
-**May 28 2024:** Fix Mongo and Links installs
+Tech Stack
 
-**April 26 2024:** Update node version to 16
+Backend: Python (Django)
 
-**September 20 2023:** Update Python version to 3.9.17.
+Frontend: HTML, CSS (Bootstrap), JavaScript
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+Database: SQLite (default, can switch to PostgreSQL for production)
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+Payment: Stripe API
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+Setup Instructions
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+Clone the repository:
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+git clone <repository-url>
+cd CreativeArts2024
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+Install dependencies:
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+pip install -r requirements.txt
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+Run database migrations:
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+python manage.py migrate
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+Create a superuser:
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+python manage.py createsuperuser
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+Start the development server:
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+python manage.py runserver
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+Access the app at http://127.0.0.1:8000/.
 
-------
+Testing
 
-## FAQ about the uptime script
+Here is a checklist of manual and automated tests to ensure the platform functions correctly:
 
-**Why have you added this script?**
+General
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+Home Page:
 
-**How will this affect me?**
+Ensure navigation links direct users to the correct pages (Shop, Services, Contact).
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+Verify that the hero section and featured content display correctly.
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+Shop Page
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+Ensure all design options (logos, posters, and social media graphics) are displayed with descriptions.
 
-**So….?**
+Verify that clicking on a design redirects to the appropriate detailed page.
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+Confirm that the inquiry section allows submission of custom design requests.
 
-**Can I opt out?**
+Contact Page
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+Test form validation by submitting:
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+Empty fields (should show validation errors).
 
-**Anything more?**
+Valid inputs (should submit and redirect to a success page).
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+Verify email and phone capture functionality in the form backend.
 
----
+Authentication
 
-Happy coding!
+Login:
+
+Test valid and invalid credentials.
+
+Ensure users are redirected to the correct page post-login.
+
+Logout:
+
+Verify logout functionality clears the session.
+
+Registration:
+
+Ensure new users are added to the database upon successful signup.
+
+Test for duplicate email or username errors.
+
+Checkout
+
+Test payment processing via Stripe:
+
+Use test Stripe API keys.
+
+Ensure successful redirection to Stripe’s hosted checkout page.
+
+Verify that invalid payment information is rejected gracefully.
+
+Forms and Buttons
+
+Click through all buttons and links to ensure:
+
+They are styled correctly.
+
+They navigate to the intended destination.
+
+Submit buttons trigger the correct backend logic.
+
+Error Handling
+
+Check 404 and 500 error pages are styled and informative.
+
+Mobile Responsiveness
+
+Resize the browser to test responsiveness across different screen sizes.
+
+Test navigation menus and buttons on mobile devices.
+
+Automated Tests (Optional)
+
+Write Django tests for:
+
+Models: Validate data constraints.
+
+Views: Ensure correct templates and status codes.
+
+Forms: Test validation logic.
+
+URLs: Verify correct URL mapping.
+
+Usage
+
+Navigate the site using the menu.
+
+Browse the shop to view available design options.
+
+Use the inquiry form for custom graphic design requests.
+
+Register/login to access additional features like checkout.
+
+Complete purchases via the Stripe payment system.
+
+Author
+
+Creative Arts 2024 was developed by Tamarie M. Feel free to reach out with questions or contributions!
+
+**The site is incomplete as can be seen with the shopping basket process not complete. This will be worked on in the near future and updated**
+
+Credits
+GitHub Template: Code Institute
+ChatGPT: Helpful in providing solutions to occuring erorrs.

@@ -1,23 +1,100 @@
 {% extends 'base.html' %}
 
-{% block title %}Welcome to Creative Arts{% endblock %}
+{% load static %}
+
+{% block title %}Shop - Creative Arts{% endblock %}
 
 {% block content %}
-<h1 class="mb-4">Welcome to Creative Arts</h1>
-<p>Your one-stop shop for all things creative!</p>
+<div class="shop-page">
+    <h1 class="mb-4 text-center">Welcome to Creative Arts Shop</h1>
+    <p class="text-center">Your one-stop shop for all things creative! Discover unique graphic items for every need.</p>
 
-<div class="row">
-    <div class="col-md-4">
-        <h3>Featured Products</h3>
-        <!-- Add featured products here -->
+    <div class="row mb-5">
+        <div class="col-md-4">
+            <h3>Featured Products</h3>
+            <ul class="list-group">
+                <li class="list-group-item">Custom Logo Design - Stand out with a professional logo.</li>
+                <li class="list-group-item">Event Poster Design - Eye-catching posters for your events.</li>
+                <li class="list-group-item">Social Media Graphics - Enhance your online presence.</li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h3>New Arrivals</h3>
+            <ul class="list-group">
+                <li class="list-group-item">Minimalist Logo Pack - Fresh, sleek designs.</li>
+                <li class="list-group-item">Seasonal Poster Bundle - Perfect for holidays and promotions.</li>
+                <li class="list-group-item">Story Highlights - Trendy graphics for Instagram.</li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h3>Best Sellers</h3>
+            <ul class="list-group">
+                <li class="list-group-item">Signature Logo Design - Our clients' favorite choice!</li>
+                <li class="list-group-item">Premium Poster Collection - A top pick for events.</li>
+                <li class="list-group-item">Custom Graphics Package - Tailored for social media success.</li>
+            </ul>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h3>New Arrivals</h3>
-        <!-- Add new arrivals here -->
+
+    <div class="products-section">
+        <h2 class="mb-4 text-center">Explore Our Products</h2>
+        <div class="row">
+            <!-- Additional services -->
+            <div>
+                <p>Looking for something beyond our featured offerings? We’re here to bring your creative vision to life! 
+                Whether you need custom business cards, eye-catching T-shirt designs, or any other graphic work, our talented team is ready to assist.
+                Please leave a comment below describing your business and the graphic services you’re interested in. 
+                Be sure to include your email address or phone number, and our team will reach out to you promptly to discuss your project and provide a personalized solution.
+                Your creative journey starts here—let’s make your ideas a reality!</p>
+            </div>
+            <!-- Product Card 1 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{% static 'images/Creative Arts Logo 1.png' %}" class="card-img-top" alt="Logo Design">
+                    <div class="card-body">
+                        <h5 class="card-title">Logo Design</h5>
+                        <p class="card-text">Custom professional logos to represent your brand.</p>
+                        <a href="{% url 'checkout' %}" class="btn btn-primary">Add to Basket</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Product Card 2 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{% static 'images/CAPoster3.png' %}" class="card-img-top" alt="Poster Design">
+                    <div class="card-body">
+                        <h5 class="card-title">Poster Design</h5>
+                        <p class="card-text">High-quality posters perfect for events and promotions.</p>
+                        <a href="{% url 'checkout' %}" class="btn btn-primary">Add to Basket</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Product Card 3 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{% static 'images/CASMPost1.png' %}" class="card-img-top" alt="Social Media Graphics">
+                    <div class="card-body">
+                        <h5 class="card-title">Social Media Graphics</h5>
+                        <p class="card-text">Custom graphics to elevate your social media presence.</p>
+                        <a href="{% url 'checkout' %}" class="btn btn-primary">Add to Basket</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h3>Best Sellers</h3>
-        <!-- Add best sellers here -->
-    </div>
+
+    <div>
+        <h1>Contact Us</h1>
+        <form action="{% url 'contact' %}" method="post">
+        {% csrf_token %}
+            <div><label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            <button type="submit">Send</button></div>
+        </form>
+    </div>    
 </div>
 {% endblock %}

@@ -15,11 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from shop import views
+from shop import views as shop_views  # Import views from shop
+from services import views as services_views  # Import views from services
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name='home'),
+    path('', shop_views.home, name='home'),  # Use the correct import for home view
     path('shop/', include('shop.urls')),
     path('services/', include('services.urls')),
+    path('contact/', services_views.contact_view, name='contact'),  # Correctly reference the contact view
 ]
+
+
+

@@ -5,4 +5,44 @@
 {% block content %}
 <h1>Our Services</h1>
 <p>We offer a range of services to meet your needs.</p>
+
+<h2>Our Featured Design Services</h2>
+<div class="services">
+  <ul>
+    <li>
+      <a href="{% url 'logo_design' %}">Logo Design</a> 
+      <p>A logo is the face of your brand, and we specialize in creating designs that make a lasting impression. 
+        Our team crafts unique and professional logos tailored to reflect your business's identity and values, 
+        ensuring you stand out in a crowded market. Whether you need a fresh concept or a revamp, we’re here to bring your vision to life.</p>
+    </li>
+    <li>
+      <a href="{% url 'poster_design' %}">Poster Design</a>
+      <P>Posters are a powerful tool for communication, and our designs make sure your message gets noticed. 
+        From eye-catching event promotions to compelling advertisements, we create high-quality posters that 
+        combine bold visuals with effective messaging to engage your audience. 
+        Let your posters leave a lasting impression.</P>
+    </li>
+    <li>
+      <a href="{% url 'social_media_design' %}">Social Media Graphics</a>
+      <p>Social media is where your brand comes alive, and our custom graphics ensure your presence is unforgettable. 
+        We design engaging visuals tailored for platforms like Instagram, Facebook, and Twitter, 
+        helping you connect with your audience and elevate your brand’s online identity. Stand out in every feed with our creative touch.</p>
+    </li>
+  </ul>
+</div>
+
+<!-- Contact Form Section -->
+<section id="contact" class="contact-form">
+  <h2>Contact Us</h2>
+  <form action="{% url 'contact' %}" method="post">
+      {% csrf_token %}
+      <div><label for="name">Name:</label>
+      <input type="text" id="name" name="name" required></div>
+      <div></div><label for="email">Email:</label>
+      <input type="email" id="email" name="email" required></div>
+      <div></div><label for="message">Message:</label>
+      <textarea id="message" name="message" rows="4"></textarea></div>
+      <div></div><button type="submit">Submit</button></div>
+  </form>
+</section>
 {% endblock %}

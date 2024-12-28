@@ -14,3 +14,10 @@ def poster_design_view(request):
 
 def social_media_design_view(request):
     return render(request, 'services/social_media_design.html')
+
+def contact_view(request):
+    if request.method == 'POST':
+        # Process the contact form (e.g., send an email or save the data)
+        return render(request, 'services/contact_success.html')
+    return render(request, 'services/contact.html')
+

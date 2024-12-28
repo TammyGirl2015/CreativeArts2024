@@ -1,6 +1,7 @@
 body {
     font-family: Arial, sans-serif;
 }
+
 .navbar {
     margin-bottom: 20px;
 }
@@ -8,3 +9,20 @@ footer {
     background-color: #f8f9fa;
     color: #6c757d;
 }
+
+.navbar-text {
+    position: center;
+}
+
+.gallery {
+    max-width: 80%; /* Ensures the image does not overflow its container */
+    height: auto;    /* Maintains the aspect ratio */
+    display: block;  /* Removes inline spacing (optional, for better alignment) */
+}
+
+@media (max-width: 768px) {
+    .image-container img {
+        width: 100%; /* Images take the full width on smaller screens */
+    }
+}
+
